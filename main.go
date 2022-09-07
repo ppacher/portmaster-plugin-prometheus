@@ -46,7 +46,7 @@ type StaticConfig struct {
 func startPlugin() {
 	var reporter *promreport.PrometheusReporter
 
-	framework.RegisterReporter(
+	err := framework.RegisterReporter(
 		// we wrap the PromethesuReporter in a ReporterFunc so we can lazily initialize
 		// the reporter during framework.OnInit.
 		// We need this because access to the static configuration is only possible after
@@ -67,6 +67,9 @@ func startPlugin() {
 			return reporter.ReportConnection(ctx, c)
 		}),
 	)
+	if err != nil {
+		panic(err)
+	}
 
 	framework.OnInit(func(ctx context.Context) error {
 		// Parse the static plugin configuration that is given in the plugins.json file.
