@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/hashicorp/go-hclog v1.0.0
 	github.com/prometheus/client_golang v1.13.0
-	github.com/safing/portmaster v0.9.5
+	github.com/safing/portmaster v0.9.6-0.20220906121621-41310b8d5c42
 	github.com/spf13/cobra v1.5.0
 )
 
@@ -33,5 +33,3 @@ require (
 	google.golang.org/grpc v1.42.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 )
-
-replace github.com/safing/portmaster => ../../safing/portmaster
